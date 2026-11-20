@@ -1,0 +1,90 @@
+:root {
+  --fondo: #F4F7F6;
+  --superficie: #FFFFFF;
+  --texto: #1B2B2E;
+  --texto-suave: #5B6F6C;
+  --primario: #0F5C63;
+  --primario-oscuro: #0A4349;
+  --borde: #CBD8D6;
+  --alergeno-fondo: #FBE4E1;
+  --alergeno-texto: #9B1C13;
+  --traza-fondo: #FFF3D1;
+  --traza-texto: #7A4E00;
+  --fuente: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+a { color: var(--primario); }
+:focus-visible { outline: 3px solid #E8A200; outline-offset: 2px; }
+
+/* Cabecera y pie */
+.cabecera { background: var(--primario); color: #fff; padding: 1rem 1.25rem; }
+.marca { color: #fff; font-size: 1.5rem; font-weight: 700; text-decoration: none; letter-spacing: 0.01em; }
+.lema { margin: 0.15rem 0 0; font-size: 0.95rem; opacity: 0.92; }
+main { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1.25rem 2rem; }
+.pie { max-width: 44rem; margin: 0 auto; padding: 1rem 1.25rem 2.5rem; color: var(--texto-suave); font-size: 0.9rem; border-top: 1px solid var(--borde); }
+
+h1 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 1rem; }
+h2 { font-size: 1.1rem; margin: 1.6rem 0 0.4rem; padding-top: 0.9rem; border-top: 1px solid var(--borde); }
+
+/* Búsqueda */
+.busqueda { display: grid; gap: 0.9rem; background: var(--superficie); border: 1px solid var(--borde); border-radius: 10px; padding: 1.1rem; }
+.campo label { display: block; font-weight: 700; margin-bottom: 0.25rem; }
+input[type="search"], select {
+  width: 100%; min-height: 2.9rem; padding: 0.5rem 0.75rem;
+  font: inherit; color: var(--texto); background: #fff;
+  border: 1.5px solid #7E9794; border-radius: 6px;
+}
+.acciones { display: flex; gap: 0.75rem; align-items: center; }
+button { font: inherit; cursor: pointer; min-height: 2.9rem; }
+.btn-primario { background: var(--primario); color: #fff; border: 0; border-radius: 6px; padding: 0.5rem 1.4rem; font-weight: 700; }
+.btn-primario:hover { background: var(--primario-oscuro); }
+.btn-texto { background: none; border: 0; color: var(--primario); text-decoration: underline; padding: 0.5rem; }
+
+.contador { margin: 1.1rem 0 0.4rem; color: var(--texto-suave); min-height: 1.5rem; }
+
+/* Resultados */
+.resultados { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.resultado {
+  display: grid; grid-template-columns: 1fr auto; gap: 0 1rem;
+  background: var(--superficie); border: 1px solid var(--borde); border-left: 5px solid var(--primario);
+  border-radius: 6px; padding: 0.8rem 1rem; color: inherit; text-decoration: none;
+}
+.resultado:hover { border-color: var(--primario); }
+.r-nombre { font-weight: 700; font-size: 1.1rem; grid-column: 1; }
+.r-marca { color: var(--texto-suave); grid-column: 1; }
+.r-categoria { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 0.9rem; color: var(--primario); }
+
+.vacio { background: var(--superficie); border: 1.5px dashed #7E9794; border-radius: 10px; padding: 1.25rem; margin-top: 1rem; }
+.vacio p { margin: 0 0 0.6rem; }
+
+/* Ficha */
+.volver { display: inline-block; margin-bottom: 1rem; font-weight: 700; }
+.ficha { background: var(--superficie); border: 1px solid var(--borde); border-radius: 10px; padding: 1.25rem; }
+.ficha h1:focus { outline: none; }
+.ficha-sub { margin: -0.4rem 0 0; color: var(--texto-suave); }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chips li { padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; }
+.chips-alergeno li { background: var(--alergeno-fondo); color: var(--alergeno-texto); border: 1.5px solid var(--alergeno-texto); }
+.chips-traza li { background: var(--traza-fondo); color: var(--traza-texto); border: 1.5px dashed var(--traza-texto); }
+.nota { margin: 0; color: var(--texto-suave); }
+.no-disp { color: var(--texto-suave); font-style: italic; background: #EEF1F0; padding: 0.1rem 0.5rem; border-radius: 4px; }
+.fotos { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.foto { width: 100%; max-width: 22rem; height: auto; border: 1px solid var(--borde); border-radius: 6px; }
+.datos { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0; }
+.datos dt { font-weight: 700; }
+.datos dd { margin: 0; }
+
+@media (min-width: 40rem) {
+  .busqueda { grid-template-columns: 1fr 14rem auto; align-items: end; }
+  .ficha { padding: 1.75rem; }
+}
